@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'muliregular';
+    src: url('../fonts/muli-webfont.woff2') format('woff2'),
+         url('../fonts/muli-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ovoregular';
+    src: url('../fonts/ovo-regular-webfont.woff2') format('woff2'),
+         url('../fonts/ovo-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$body-font: "muliregular", sans-serif;
+$head-font: "ovoregular", serif;
+$bg-color: #EFEFEF;
+$font-color: #A9A9A9;
+$highlight-color: #CAEBF2;
+$accent-color: #FF3B3F;
+$brd: 2px solid $font-color;
+
+@mixin flex-col{
+    display: flex;
+    flex-flow: column wrap;
+}
+@mixin flex-row{
+    display: flex;
+    flex-flow: row wrap;
+}
+@mixin center{
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    @include flex-row;
+    font-family: $body-font;
+}
+ul{
+    list-style: none;
+}
+h1{
+    font-family: $head-font;
+    text-align: center;
+    background-color: $highlight-color;
+    color: $font-color;
+}
+
+.header{
+    border: $brd;
+    background-color: $bg-color;
+    width: 100%;
+    h1{
+        font-size: 3em;
+    }
+}
+.aside{
+    margin-top: 0.5em;
+    background-color: $bg-color;
+    border: $brd;
+    width: 25%;
+    .ulAside{
+        padding: 1em;
+        li{
+            @include flex-col;
+            @include center;
+            p{
+                background-color: $highlight-color;
+                margin-bottom: 2em;
+            }
+            .getButtons{
+                height: 4em;
+                width: 11em;
+                background-color: $accent-color;
+                border-radius: 100%;
+                border: none;
+                font-size: 1em;
+            }  
+        }
+    }
+}
+.showcase{
+    background-color: $bg-color;
+    border: $brd;
+    margin: 0.5em 0 0 0.5em;
+    width: 73%;
+    .movies{
+        padding: 0;
+    }
+}
+.rate-genre{
+    @include flex-row;
+    div{
+        margin-left: 3em;
+    }
+}
+

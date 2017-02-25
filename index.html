@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" href="js/main.js"></script>
+	<title>Movie Database</title>
+</head>
+<body>
+	<header class="header">
+		<h1>MOVIE DATABASE</h1>
+	</header>
+	<aside class="aside">
+		<ul class="ulAside">
+			<li><button class="getButtons" id="topRated">Top ranked movies</button></li>
+			<li><p>Get the top ranked movies of all time</p></li><br />
+			<li><button class="getButtons" id="bottomRated">Bottom ranked movies</button></li>
+			<li><p>Get the bottom ranked movies of all time</p></li><br />
+			<li><button class="getButtons" id="thisYear">Movies released this year</button></li>
+			<li><p>Get the movies that was released in 2017</p></li><br />
+			<li><button class="getButtons" id="byGenre">Movies by genre</button></li>
+			<li><p>Get movies based on genre</p></li><br />
+			<li><button class="getButtons" id="addMovie">Add a movie</button></li>
+			<li><p>Add a movie to the database</p></li><br />
+		</ul>
+	</aside>
+	<div class="showcase">
+		<ul class="movies">
+			<li><h1>THE MOVIES</h1></li>
+			
+		</ul>
+		<div class="rate-genre">
+			<div>
+				<h3>Rate this movie</h3>
+				<select id="ratingList">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+				</select>
+			</div>
+			<div>
+				<h3>Add a genre to this movie</h3>
+				<form id="addGenre">
+					Genre: <br />
+					<input type="text" name="newGenre" placeholder="Action">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

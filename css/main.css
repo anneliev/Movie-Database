@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'muliregular';
+  src: url("../fonts/muli-webfont.woff2") format("woff2"), url("../fonts/muli-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'ovoregular';
+  src: url("../fonts/ovo-regular-webfont.woff2") format("woff2"), url("../fonts/ovo-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+body {
+  display: flex;
+  flex-flow: row wrap;
+  font-family: "muliregular", sans-serif; }
+
+ul {
+  list-style: none; }
+
+h1 {
+  font-family: "ovoregular", serif;
+  text-align: center;
+  background-color: #CAEBF2;
+  color: #A9A9A9; }
+
+.header {
+  border: 2px solid #A9A9A9;
+  background-color: #EFEFEF;
+  width: 100%; }
+  .header h1 {
+    font-size: 3em; }
+
+.aside {
+  margin-top: 0.5em;
+  background-color: #EFEFEF;
+  border: 2px solid #A9A9A9;
+  width: 25%; }
+  .aside .ulAside {
+    padding: 1em; }
+    .aside .ulAside li {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center; }
+      .aside .ulAside li p {
+        background-color: #CAEBF2;
+        margin-bottom: 2em; }
+      .aside .ulAside li .getButtons {
+        height: 4em;
+        width: 11em;
+        background-color: #FF3B3F;
+        border-radius: 100%;
+        border: none;
+        font-size: 1em; }
+
+.showcase {
+  background-color: #EFEFEF;
+  border: 2px solid #A9A9A9;
+  margin: 0.5em 0 0 0.5em;
+  width: 73%; }
+  .showcase .movies {
+    padding: 0; }
+
+.rate-genre {
+  display: flex;
+  flex-flow: row wrap; }
+  .rate-genre div {
+    margin-left: 3em; }
+
+/*# sourceMappingURL=main.css.map */

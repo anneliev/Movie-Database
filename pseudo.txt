@@ -1,0 +1,31 @@
+html
+
+	ul - li - senast tillagda
+	button - rateMovie
+	input - add genre
+
+kanppar för:
+- getTopRatedMovie
+- getWorstRatedMovie
+- getMoviesThisYear
+
+checkboxar för:
+- getMoviesByGenre
+
+formulär för ny film
+
+
+
+javascript
+
+object 
+	array av object med movies (title, year, length, genre, rating)
+	funktionerna för movies
+
+knapparna
+	removeChild + appendChild to list för visning
+	push i array för rating
+
+input - push i array för genre
+	
+form för att lägga till film (fält måste fyllas i)
