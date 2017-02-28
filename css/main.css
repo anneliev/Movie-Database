@@ -45,10 +45,10 @@ h1 {
         background-color: #CAEBF2;
         margin-bottom: 2em; }
       .aside .ulAside li .getButtons {
-        height: 4em;
+        height: 3em;
         width: 11em;
         background-color: #FF3B3F;
-        border-radius: 100%;
+        border-radius: 20%;
         border: none;
         font-size: 1em; }
 

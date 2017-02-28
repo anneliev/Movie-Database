@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script type="text/javascript" href="js/main.js"></script>
 	<title>Movie Database</title>
 </head>
 <body>
@@ -11,28 +10,52 @@
 		<h1>MOVIE DATABASE</h1>
 	</header>
 	<aside class="aside">
-		<ul class="ulAside">
-			<li><button class="getButtons" id="topRated">Top ranked movies</button></li>
-			<li><p>Get the top ranked movies of all time</p></li><br />
-			<li><button class="getButtons" id="bottomRated">Bottom ranked movies</button></li>
-			<li><p>Get the bottom ranked movies of all time</p></li><br />
-			<li><button class="getButtons" id="thisYear">Movies released this year</button></li>
-			<li><p>Get the movies that was released in 2017</p></li><br />
-			<li><button class="getButtons" id="byGenre">Movies by genre</button></li>
-			<li><p>Get movies based on genre</p></li><br />
-			<li><button class="getButtons" id="addMovie">Add a movie</button></li>
-			<li><p>Add a movie to the database</p></li><br />
+		<ul class="ulAside"><!-- A list that hold the buttons and forms that can be called by their ID from the JavaScript file-->
+			<li><p>Show all the movies</p></li>
+			<li><button class="getButtons" id="showAllMoviesButton">Display all movies</button></li><br /><br />		
+			<li><p>Get the top ranked movie of all time</p></li>
+			<li><button class="getButtons" id="topRatedButton">Top ranked movie</button></li><br /><br />
+			<li><p>Get the bottom ranked movie of all time</p></li>
+			<li><button class="getButtons" id="bottomRatedButton">Bottom ranked movie</button></li><br /><br />
+			<li><p>Get the movies that was released in 2017</p></li>
+			<li><button class="getButtons" id="thisYearButton">Movies released this year</button></li><br /><br />
+			<li><p>Get movies based on genre</p></li>
+			<li><form id="genreList">
+				<input type="checkbox" name="option1" value="Action">Action
+				<input type="checkbox" name="option2" value="Adventure">Adventure
+				<input type="checkbox" name="option3" value="Animation">Animation
+				<input type="checkbox" name="option4" value="Comedy">Comdey
+				<input type="checkbox" name="option5" value="Crime">Crime
+				<input type="checkbox" name="option6" value="Drama">Drama
+				<input type="checkbox" name="option7" value="Family">Family
+				<input type="checkbox" name="option8" value="Fantasy">Fantasy
+				<input type="checkbox" name="option9" value="Horror">Horror
+				<input type="checkbox" name="option10" value="Thriller">Thriller
+				<input type ="submit" class="getButtons" id="byGenreButton" value="Movies by genre">
+			</form></li><br /><br />
+			<li><p>Add a movie to the database</p></li>
+			<li><form id="newMovie">
+				Title:<br />
+				<input type="text" id="newTitle"><br />
+				Year:<br />
+				<input type="number" id="newYear"><br />
+				Genre:<br />
+				<input type="text" id="newGenre"><br />
+				Rating (1 - 10): <br />
+				<input type="number" id="newRating"><br />
+				Length (in minutes):<br />
+				<input type="number" id="newTime"><br /><br />
+				<input type="submit" value="Add a movie" class="getButtons" id="addMovieButton">
+			</form></li>
 		</ul>
 	</aside>
-	<div class="showcase">
-		<ul class="movies">
-			<li><h1>THE MOVIES</h1></li>
-			
+	<div class="showcase"><!-- Div with list elements. This is where the requested movie will be displayed -->
+	<h1>THE MOVIES</h1>
+		<ul id="moviesToShow"><!--The element on which a function (showThem()) will create a li-element) -->
 		</ul>
-		<div class="rate-genre">
-			<div>
-				<h3>Rate this movie</h3>
-				<select id="ratingList">
+			<ul class="rateGenre">
+				<li><select id="ratingList">
+					<option label="Rate this movie">Rate this movie</option>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -43,16 +66,15 @@
 					<option>8</option>
 					<option>9</option>
 					<option>10</option>
-				</select>
-			</div>
-			<div>
-				<h3>Add a genre to this movie</h3>
-				<form id="addGenre">
-					Genre: <br />
+				</select></li>
+			</ul>
+			<ul class="rateGenre">
+				<li><form id="addGenre">
+					Add a genre: <br />
 					<input type="text" name="newGenre" placeholder="Action">
-				</form>
-			</div>
-		</div>
+				</form></li>
+			</ul>
 	</div>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
