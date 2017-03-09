@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css"><!--Link to the css stylesheet file -->
 	<title>Movie Database</title>
 </head>
 <body>
@@ -10,6 +10,7 @@
 		<h1>MOVIE DATABASE</h1>
 	</header>
 	<aside class="aside">
+		<h2>Click a button to show movies</h2>
 		<ul class="ulAside"><!-- A list that hold the buttons and forms that can be called by their ID from the JavaScript file-->
 			<li><p>Show all the movies</p></li>
 			<li><button class="getButtons" id="showAllMoviesButton" title="Click here">Display all movies</button></li><br /><br />		
@@ -33,8 +34,18 @@
 				<input type="checkbox" name="genreCheck" value="Thriller">Thriller<br />
 				<input type ="submit" class="getButtons" id="byGenreButton" value="Movies by genre" title="Click here">
 			</form></li><br /><br />
-			<li><p>Add a movie to the database</p></li>
-			<li><form id="newMovieForm">
+			
+		</ul>
+	</aside>
+	<div class="showcase"><!--Div where content is shown, shared css.  -->
+		<h2>Selected movies</h2>
+		<ul id="moviesToShow"><!-- Ul with list elements. This is where the requested movie will be displayed. Here the function (displayTheMovies() )will create a li-element) -->
+		</ul>
+	</div>
+	<div class="showcase"><!--Div where content is shown, shared css.-->
+		<div><!--Div containing a form with input fields, both text and numeric, and a button, used to add a movie to the database -->
+			<h2>Add a movie to the database</h2>
+			<form id="newMovieForm">
 				Title:<br />
 				<input type="text" id="newTitle"><br />
 				Year:<br />
@@ -45,59 +56,46 @@
 				<input type="number" id="newRating" min = 1 max = 10><br />
 				Length (in minutes):<br />
 				<input type="number" id="newTime"><br /><br />
-				<input type="submit" value="Add a movie" class="getButtons" id="addMovieButton" title="Click here">
-			</form></li>
-		</ul>
-	</aside>
-	<div class="showcase"><!-- Div with list elements. This is where the requested movie will be displayed -->
-		<ul id="moviesToShow"><!--The element on which a function (displayTheMovies() )will create a li-element) -->
-			<li></li>
-		</ul>
-		<div class="movieEditor">
-			<ul>
-				<h3>Edit a movie</h3>
-				<li>
-					<select id="movieToEdit">
-						<option label="Select a movie">Select a movie</option>
-						<option value="The Lord of the Rings">The Lord of the Rings</option>
-						<option value="The Return of the King">The Return of the King</option>
-						<option value="Empire Strikes Back">Empire Strikes Back</option>
-						<option value="Spirited Away">Spirited Away</option>
-						<option value="The Green Mile">The Green Mile</option>
-						<option value="The Shining">The Shining</option>
-						<option value="Dracula">Dracula</option>
-						<option value="Pledge This!">Pledge This!</option>
-						<option value="John Wick: Chapter 2">John Wick: Chapter 2</option>
-						<option value="Passengers">Passengers</option>		
-						<option value="The LEGO Batman Movie">The LEGO Batman Movie</option>
-					</select><br /><br />
-
-					<p>Add rating (1-10): </p>
-					<input type="number" name="rating" id="addedRating" min=1 max=10>
-					<input type="submit" class="addButton" name="rateMovie" value="Add"><br />
-
-					<p>Add a genre: </p>
-					<input type="text" name="newGenre" id="addedGenre" placeholder="Action">
-					<input type="submit" class="addButton" name="addGenre" value="Add">
-					
-					<p>Remove a genre: </p>
-					<select id="removedGenre">
-						<option value="Action">Action</option>
-						<option value="Adventure">Adventure</option>
-						<option value="Animation">Animation</option>
-						<option value="Comedy">Comdey</option>
-						<option value="Crime">Crime</option>
-						<option value="Drama">Drama</option>
-						<option value="Family">Family</option>
-						<option value="Fantasy">Fantasy</option>
-						<option value="Horror">Horror</option>
-						<option value="Thriller">Thriller</option>
-					</select>
-					<input type="submit" class="addButton" name="removeGenre" value="Remove">
-				</li>
-			</ul>
+				<input type="submit" value="Add a movie" class="addButton" id="addMovieButton" title="Click here">
+			</form>
+		</div>
+		<div class="movieEditor"><!--Div contaning select-forms, input fields and a button used to edit a movie in the database  -->
+			<h2>Edit a movie</h2>
+			<select id="movieToEdit">
+				<option label="--Select a movie--"></option>
+				<option value="The Lord of the Rings">The Lord of the Rings</option>
+				<option value="The Return of the King">The Return of the King</option>
+				<option value="Empire Strikes Back">Empire Strikes Back</option>
+				<option value="Spirited Away">Spirited Away</option>
+				<option value="The Green Mile">The Green Mile</option>
+				<option value="The Shining">The Shining</option>
+				<option value="Dracula">Dracula</option>
+				<option value="Pledge This!">Pledge This!</option>
+				<option value="John Wick: Chapter 2">John Wick: Chapter 2</option>
+				<option value="Passengers">Passengers</option>		
+				<option value="The LEGO Batman Movie">The LEGO Batman Movie</option>
+			</select><br />
+			Add rating (1-10): 
+			<input type="number" name="rating" id="addedRating" min=1 max=10><br />
+			Add a genre:
+			<input type="text" name="newGenre" id="addedGenre" placeholder="Action"><br />
+			Remove a genre:
+			<select id="removedGenre">
+				<option label="--Select a genre--"></option>
+				<option value="Action">Action</option>
+				<option value="Adventure">Adventure</option>
+				<option value="Animation">Animation</option>
+				<option value="Comedy">Comdey</option>
+				<option value="Crime">Crime</option>
+				<option value="Drama">Drama</option>
+				<option value="Family">Family</option>
+				<option value="Fantasy">Fantasy</option>
+				<option value="Horror">Horror</option>
+				<option value="Thriller">Thriller</option>
+				</select><br />
+			<input type="submit" class="addButton" id="editButton" value="Edit">
 		</div>
 	</div>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/main.js"></script><!--Link to the JavaScript file -->
 </body>
 </html>

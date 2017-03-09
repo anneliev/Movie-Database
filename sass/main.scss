@@ -59,7 +59,6 @@ h1{
     }
 }
 .aside{
-    margin-top: 0.5em;
     background-color: $bg-color;
     border: $brd;
     width: 25%;
@@ -84,13 +83,29 @@ h1{
     }
 }
 .showcase{
-    @include flex-row;
+    @include flex-col;
     align-items: flex-start;
     justify-content: flex-start;
     background-color: $bg-color;
     border: $brd;
-    margin: 0.5em 0 0 0.5em;
-    width: 73%;    
+  
+    width: 36.5%;    
+    div{
+        margin: 0.5em 0 0 2em;
+        .addButton{
+            background-color: $accent-color;
+            border: none;
+            border-radius: 10%;
+            height: 3em;
+            width: 8em;
+        }
+    }
+      .movieEditor{
+        @include flex-col;
+        ul{
+            margin: 0 0 2em 0;
+           }
+       }
 }
 .movieDisplay{
     margin-bottom: 2.5em;
@@ -98,22 +113,6 @@ h1{
         margin: 0;
     }
 }
-.movieEditor{
-    @include flex-col;
-    margin-left: 5em;
-    ul{
-        margin: 0 0 2em 0;
-        p{
-            margin: 0;
-        }
-        .addButton{
-            background-color: $accent-color;
-            border: none;
-            border-radius: 10%;
-            height: 1.8em;
-            width: 5em;
-        }
-    }
-}
+
 
 

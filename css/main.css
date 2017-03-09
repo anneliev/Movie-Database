@@ -31,7 +31,6 @@ h1 {
     font-size: 3em; }
 
 .aside {
-  margin-top: 0.5em;
   background-color: #EFEFEF;
   border: 2px solid #015249;
   width: 25%; }
@@ -55,32 +54,29 @@ h1 {
 
 .showcase {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-items: flex-start;
   justify-content: flex-start;
   background-color: #EFEFEF;
   border: 2px solid #015249;
-  margin: 0.5em 0 0 0.5em;
-  width: 73%; }
+  width: 36.5%; }
+  .showcase div {
+    margin: 0.5em 0 0 2em; }
+    .showcase div .addButton {
+      background-color: #57BC90;
+      border: none;
+      border-radius: 10%;
+      height: 3em;
+      width: 8em; }
+  .showcase .movieEditor {
+    display: flex;
+    flex-flow: column wrap; }
+    .showcase .movieEditor ul {
+      margin: 0 0 2em 0; }
 
 .movieDisplay {
   margin-bottom: 2.5em; }
   .movieDisplay p {
     margin: 0; }
-
-.movieEditor {
-  display: flex;
-  flex-flow: column wrap;
-  margin-left: 5em; }
-  .movieEditor ul {
-    margin: 0 0 2em 0; }
-    .movieEditor ul p {
-      margin: 0; }
-    .movieEditor ul .addButton {
-      background-color: #57BC90;
-      border: none;
-      border-radius: 10%;
-      height: 1.8em;
-      width: 5em; }
 
 /*# sourceMappingURL=main.css.map */

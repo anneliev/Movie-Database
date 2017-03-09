@@ -18,7 +18,8 @@ const elem = {
 	movieToEdit: document.getElementById("movieToEdit"),
 	addedRating: document.getElementById("addedRating"),
 	addedGenre: document.getElementById("addedGenre"),
-	removedGenre: document.getElementById("removedGenre")
+	removedGenre: document.getElementById("removedGenre"),
+	editButton: document.getElementById("editButton")
 };
 
 //Module pattern with event listeners on the buttons on HTML page. Calling functions when clicked on
@@ -44,7 +45,7 @@ const elemButtons = (function(){
 		movieDataBase.displayTheMovies(thisYear);
 	});
 
-	elem.byGenreButton.addEventListener("click", function(e){//not yet ready
+	elem.byGenreButton.addEventListener("click", function(e){
 		e.preventDefault();
 		var theGenres = movieDataBase.getMoviesByGenre();
 		movieDataBase.displayTheMovies(theGenres);
@@ -54,6 +55,12 @@ const elemButtons = (function(){
 	elem.addMovieButton.addEventListener("click", function(e){
 		e.preventDefault();
 		var newMovie = movieDataBase.addNewMovie();	
+		movieDataBase.displayTheMovies(newMovie);
+	});
+
+	elem.editButton.addEventListener("click", function(){
+		var editedMovie = movieDataBase.editMovie();
+		movieDataBase.displayTheMovies(editedMovie);
 	});
 });
 elemButtons();//calling the function holding the buttons
@@ -65,10 +72,10 @@ const movieDataBase = (function(){
 		{title: "The Lord of the Rings", year: 2001, genre: ["Adventure", "Drama", "Fantasy"], rating: [10, 8, 8, 9], avrage: [0],time: 178},
 		{title: "The Return of the King", year: 2003, genre:["Adventure", "Drama", "Fantasy"], rating: [10, 7, 9, 8], avrage: [0], time: 201}, 
 		{title: "Empire Strikes Back", year: 1980, genre: ["Action", "Adventure", "Fantasy"], rating: [8, 7, 4, 7], avrage: [0], time: 124}, 
-		{title: "Spirited Away", year: 2001, genre: ["Animation", "Adventure", "Family"], rating: [10, 6, 7, 5], avrage: [0], time: 125}, 
+		{title: "Spirited Away", year: 2001, genre: ["Animation", "Adventure", "Family"], rating: [10, 6, 7], avrage: [0], time: 125}, 
 		{title: "The Green Mile", year: 1999, genre: ["Crime", "Drama", "Fantasy"], rating: [10, 9, 8, 9], avrage: [0], time: 189},
-		{title: "The Shining", year: 1980, genre: ["Drama", "Horror"], rating: [10, 6, 8, 5], avrage: [0], time: 146}, 
-		{title: "Dracula", year: 1992, genre: ["Fantasy", "Horror"], rating: [6, 8, 5, 4,], avrage: [0], time: 128}, 
+		{title: "The Shining", year: 1980, genre: ["Drama", "Horror"], rating: [10, 6, 8, 5, 4], avrage: [0], time: 146}, 
+		{title: "Dracula", year: 1992, genre: ["Fantasy", "Horror"], rating: [6, 8, 5, 4, 3], avrage: [0], time: 128}, 
 		{title: "Pledge This!", year: 2006, genre: ["Comedy"], rating: [1, 2, 1, 0], avrage: [0], time: 91 }, 
 		{title: "John Wick: Chapter 2", year: 2017, genre: ["Action", "Crime", "Thriller"], rating: [9, 7, 8, 9], avrage: [0], time: 122}, 
 		{title: "Passengers", year: 2016, genre: ["Adventure", "Drama", "Romance"], rating: [9, 6, 5, 7], avrage: [0], time: 116}, 
@@ -168,6 +175,40 @@ const movieDataBase = (function(){
 			this.time = parseInt(time);
 		},
 
+		//Arrow function that checks if a movie is selected from a select form. If so checks if there is
+		//a new value in inout fields and another select form. Returns the edited movie.
+		editMovie: () => {
+			var editedMovie = [];
+			let selectedMovie = elem.movieToEdit.value;
+			let addRating = parseInt(elem.addedRating.value);
+			let valid = !isNaN(addRating);//Bool that is used to check if the value in an input field is a number or not
+			let addGenre = elem.addedGenre.value;
+			let removeGenre = elem.removedGenre.value;
+			
+			for(let i = 0; i < movies.length; i++){
+				if(selectedMovie === movies[i].title){
+					editedMovie = movies[i];
+					if(valid){//if value is a number, the new rating will be pushed into the rating array of movies
+						editedMovie.rating.push(addRating);
+					}if(addGenre !== ""){//if field isn't empty, the new genre will be pushed into the genre array of movies
+						editedMovie.genre.push(addGenre);
+					}
+					let currentMovieGenre = editedMovie.genre;
+					Array.prototype.contains = function(v){
+						return this.indexOf(v) > -1;
+					};
+					if(currentMovieGenre.contains(removeGenre)){//if the selected genre exist in the selected movie, it will be spliced out of the genre array in movies
+						for(let i = 0; i < currentMovieGenre.length; i++){
+							if(currentMovieGenre[i] === removeGenre){
+								currentMovieGenre.splice(i, 1);
+							}
+						}
+					}
+				}
+			}
+			return editedMovie;
+		},
+
 		//arrow function that adds all the numbers in the .rating array in the object in movies
 		//and divides them with the length of the .rating array.
 		//replaces the numbers with the avrage of them.
@@ -178,7 +219,7 @@ const movieDataBase = (function(){
 					return a + b;
 				}
 				movies[i].avrage.pop();
-				top = top/movies[i].rating.length;
+				top = parseFloat(top/movies[i].rating.length).toFixed(1);//rounding the number to have one decimal
 				movies[i].avrage.push(movies[i].avrage + top);
 			}		
 		},
