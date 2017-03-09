@@ -19,11 +19,12 @@ ul {
 h1 {
   font-family: "ovoregular", serif;
   text-align: center;
-  background-color: #CAEBF2;
-  color: #A9A9A9; }
+  background-color: #77C9D4;
+  color: #000;
+  width: 100%; }
 
 .header {
-  border: 2px solid #A9A9A9;
+  border: 2px solid #015249;
   background-color: #EFEFEF;
   width: 100%; }
   .header h1 {
@@ -32,38 +33,54 @@ h1 {
 .aside {
   margin-top: 0.5em;
   background-color: #EFEFEF;
-  border: 2px solid #A9A9A9;
+  border: 2px solid #015249;
   width: 25%; }
   .aside .ulAside {
-    padding: 1em; }
+    padding: 0.5em; }
     .aside .ulAside li {
       display: flex;
       flex-flow: column wrap;
       justify-content: center;
       align-items: center; }
       .aside .ulAside li p {
-        background-color: #CAEBF2;
-        margin-bottom: 2em; }
+        background-color: #77C9D4;
+        margin-bottom: 1em; }
       .aside .ulAside li .getButtons {
         height: 3em;
         width: 11em;
-        background-color: #FF3B3F;
-        border-radius: 20%;
+        background-color: #57BC90;
+        border-radius: 10%;
         border: none;
         font-size: 1em; }
 
 .showcase {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
   background-color: #EFEFEF;
-  border: 2px solid #A9A9A9;
+  border: 2px solid #015249;
   margin: 0.5em 0 0 0.5em;
   width: 73%; }
-  .showcase .movies {
-    padding: 0; }
 
-.rate-genre {
+.movieDisplay {
+  margin-bottom: 2.5em; }
+  .movieDisplay p {
+    margin: 0; }
+
+.movieEditor {
   display: flex;
-  flex-flow: row wrap; }
-  .rate-genre div {
-    margin-left: 3em; }
+  flex-flow: column wrap;
+  margin-left: 5em; }
+  .movieEditor ul {
+    margin: 0 0 2em 0; }
+    .movieEditor ul p {
+      margin: 0; }
+    .movieEditor ul .addButton {
+      background-color: #57BC90;
+      border: none;
+      border-radius: 10%;
+      height: 1.8em;
+      width: 5em; }
 
 /*# sourceMappingURL=main.css.map */

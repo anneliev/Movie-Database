@@ -17,10 +17,10 @@
 $body-font: "muliregular", sans-serif;
 $head-font: "ovoregular", serif;
 $bg-color: #EFEFEF;
-$font-color: #A9A9A9;
-$highlight-color: #CAEBF2;
-$accent-color: #FF3B3F;
-$brd: 2px solid $font-color;
+$font-color: #000;
+$highlight-color: #77C9D4;
+$accent-color: #57BC90;
+$brd: 2px solid #015249;
 
 @mixin flex-col{
     display: flex;
@@ -47,6 +47,7 @@ h1{
     text-align: center;
     background-color: $highlight-color;
     color: $font-color;
+    width: 100%;
 }
 
 .header{
@@ -63,19 +64,19 @@ h1{
     border: $brd;
     width: 25%;
     .ulAside{
-        padding: 1em;
+        padding: 0.5em;
         li{
             @include flex-col;
             @include center;
             p{
                 background-color: $highlight-color;
-                margin-bottom: 2em;
+                margin-bottom: 1em;
             }
             .getButtons{
                 height: 3em;
                 width: 11em;
                 background-color: $accent-color;
-                border-radius: 20%;
+                border-radius: 10%;
                 border: none;
                 font-size: 1em;
             }  
@@ -83,18 +84,36 @@ h1{
     }
 }
 .showcase{
+    @include flex-row;
+    align-items: flex-start;
+    justify-content: flex-start;
     background-color: $bg-color;
     border: $brd;
     margin: 0.5em 0 0 0.5em;
-    width: 73%;
-    .movies{
-        padding: 0;
+    width: 73%;    
+}
+.movieDisplay{
+    margin-bottom: 2.5em;
+    p{
+        margin: 0;
     }
 }
-.rate-genre{
-    @include flex-row;
-    div{
-        margin-left: 3em;
+.movieEditor{
+    @include flex-col;
+    margin-left: 5em;
+    ul{
+        margin: 0 0 2em 0;
+        p{
+            margin: 0;
+        }
+        .addButton{
+            background-color: $accent-color;
+            border: none;
+            border-radius: 10%;
+            height: 1.8em;
+            width: 5em;
+        }
     }
 }
+
 
