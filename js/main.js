@@ -60,7 +60,7 @@ const elemButtons = (function(){
 	});
 
 	elem.editButton.addEventListener("click", function(){
-	let editedMovie = movieDataBase.editMovie();
+		let editedMovie = movieDataBase.editMovie();
 		movieDataBase.displayTheMovies(editedMovie);
 	});
 });
@@ -90,7 +90,7 @@ const movieDataBase = (function(){ //using const since this variables will not b
 		}, 
 		{
 			cover: "http://img.moviepostershop.com//the-empire-strikes-back-movie-poster-1980-1010189518.jpg",
-			title: "Empire Strikes Back", 
+			title: "The Empire Strikes Back", 
 			year: 1980, 
 			genre: ["Action", "Adventure", "Fantasy"], 
 			rating: [8, 7, 4, 7], 
@@ -257,10 +257,15 @@ const movieDataBase = (function(){ //using const since this variables will not b
 			let newRating = elem.newRating.value;
 			let newAvrage = 0;
 			let newTime = elem.newTime.value;
-			let newMovie = new movieDataBase.Movie(newCover, newTitle, newYear, newGenre, newRating, newAvrage, newTime);
-			movies.push(newMovie);
-			elem.newMovieForm.reset();//function that resets the form after the button is clicked
-			return newMovie;			
+			if(newTitle === ""){//if the input field for Title is empty, no new movie will be added. 
+								//Instead an alert will pop up telling the user to add a title
+				alert("You need to enter a title");
+			}else{//if a title is entered, a new movie can be added to the database
+				let newMovie = new movieDataBase.Movie(newCover, newTitle, newYear, newGenre, newRating, newAvrage, newTime);
+				movies.push(newMovie);
+				elem.newMovieForm.reset();//function that resets the whole form after the new movie is added to the movie array
+				return newMovie;	
+			}		
 		},
 
 		//Constuctor pattern that is used to create a new movies object. It converts some values to numbers and others to arrays.
@@ -288,24 +293,34 @@ const movieDataBase = (function(){ //using const since this variables will not b
 			for(let i = 0; i < movies.length; i++){
 				if(selectedMovie === movies[i].title){
 					editedMovie = movies[i];
-					if(valid){//if value is a number, the new rating will be pushed into the rating array of movies
+					if(valid){//if value is a number, the new rating can be pushed into the rating array of the selected movie
+						if(addRating > 10){//if the entered number is higher than 10 an alert will pop up and no rating will be added
+							alert("The highest rating for a movie is 10. Your rating was not added");
+						}else{//if the entered number isn't higher than 10 it will be pushed into the rating array of the selevted movie
 						editedMovie.rating.push(addRating);
-					}if(addGenre !== ""){//if field isn't empty, the new genre will be pushed into the genre array of movies
+						}
+					}
+					if(addGenre !== ""){//if input field isn't empty, the new genre will be pushed into the genre array of the selected movie
 						editedMovie.genre.push(addGenre);
 					}
 					let currentMovieGenre = editedMovie.genre;
-					Array.prototype.contains = function(v){
-						return this.indexOf(v) > -1;
+					Array.prototype.contains = function(g){
+						return this.indexOf(g) > -1;
 					};
-					if(currentMovieGenre.contains(removeGenre)){//if the selected genre exist in the selected movie, it will be spliced out of the genre array in movies
+					if(currentMovieGenre.contains(removeGenre)){//function that checks if the selected movie genre array contains the chosen genre
+																//using the above Array.prototype.contains function 
 						for(let i = 0; i < currentMovieGenre.length; i++){
-							if(currentMovieGenre[i] === removeGenre){
+							if(currentMovieGenre[i] === removeGenre){//if the selected genre exist in the selected movie, it will be removed from the genre array in the selected movie
 								currentMovieGenre.splice(i, 1);
 							}
 						}
 					}
 				}
 			}
+			movieToEdit.selectedIndex = 0;//resets the select form for the chosen movie
+			addedRating.value = "";//resets the input field for rating
+			addedGenre.value = "";//resets the input field for added genre
+			removedGenre.selectedIndex = 0;//restes the select form for genre to remove
 			return editedMovie;
 		},
 
@@ -333,7 +348,7 @@ const movieDataBase = (function(){ //using const since this variables will not b
 			for(let i = 0; i < mov.length; i++){
 				let theMovies = `<li class="movieDisplay">
 				<img src="${mov[i].cover}"></img>
-				<p><strong>Title: ${mov[i].title}</strong></p>
+				<p><strong>${mov[i].title}</strong></p>
 				<p>Released: ${mov[i].year}</p>
 				<p>Genre: ${mov[i].genre}</p>
 				<p>Rating: ${mov[i].avrage}</p>

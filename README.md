@@ -5,7 +5,7 @@ Front-end developer student at Nackademin
 https://github.com/anneliev/Movie-Database
 
 
-Assignment for Javascript course in school. A local movie database with basic features.
+Assignment for JavaScript course in school. A local movie database with basic features.
 
   - Display movies based on rating, genre or year
   - Add a movie
