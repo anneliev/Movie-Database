@@ -46,9 +46,11 @@
 		<div><!--Div containing a form with input fields, both text and numeric, and a button, used to add a movie to the database -->
 			<h2>Add a movie to the database</h2>
 			<form id="newMovieForm">
+				Cover: (url) <br />
+				<input type="text" id="newCover"><br />
 				Title:<br />
 				<input type="text" id="newTitle"><br />
-				Year:<br />
+				Release year:<br />
 				<input type="number" id="newYear"><br />
 				Genre:<br />
 				<input type="text" id="newGenre"><br />
@@ -61,6 +63,7 @@
 		</div>
 		<div class="movieEditor"><!--Div contaning select-forms, input fields and a button used to edit a movie in the database  -->
 			<h2>Edit a movie</h2>
+			Which movie?
 			<select id="movieToEdit">
 				<option label="--Select a movie--"></option>
 				<option value="The Lord of the Rings">The Lord of the Rings</option>

@@ -88,7 +88,6 @@ h1{
     justify-content: flex-start;
     background-color: $bg-color;
     border: $brd;
-  
     width: 36.5%;    
     div{
         margin: 0.5em 0 0 2em;
@@ -108,9 +107,16 @@ h1{
        }
 }
 .movieDisplay{
-    margin-bottom: 2.5em;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    border: $brd;
+    background-color: #FFF;
     p{
         margin: 0;
+    }
+    img{
+        width: 8em;
+        height: 11em;
     }
 }
 
