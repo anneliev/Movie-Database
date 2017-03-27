@@ -1,9 +1,10 @@
 # Movie Database
 
-By Annelie Viklund
-Front-end developer student at Nackademin
-[Live version](https://anneliev.github.io/Movie-Database/)
+By Annelie Viklund  
+Front-end developer student at Nackademin  
+[Live version](https://anneliev.github.io/Movie-Database/)  
 [Code](https://github.com/anneliev/Movie-Database)
+
 
 
 Assignment for JavaScript course in school. A local movie database with basic features.
