@@ -2,7 +2,8 @@
 
 By Annelie Viklund
 Front-end developer student at Nackademin
-https://github.com/anneliev/Movie-Database
+[Live version](https://anneliev.github.io/Movie-Database/)
+[Code](https://github.com/anneliev/Movie-Database)
 
 
 Assignment for JavaScript course in school. A local movie database with basic features.
@@ -19,3 +20,5 @@ I have written the code using ES6/ES2015 and I have used three different namespa
 
 3. The third namespace is also a Module pattern which includes the array holding all movie objects as well as all the functions. I have made many small functions that has a clear purpose. For the constructor a used the Constuctor pattern, mostly since that is the one I am used to and I think that it looks clean. For arrays I have used the functions .lenght, .sort, .push, .splice, .pop and Array.prototype.contains. 
 In the functions to display the movies on the HTML page i used template literals, since it's very convinient when mixing strings and vaiables, and it makes the code look cleaner. 
+
+I chose not to use a framework for this project, I wanted to write the Sass/CSS by myself.
