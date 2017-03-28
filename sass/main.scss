@@ -49,6 +49,10 @@ h1{
     color: $font-color;
     width: 100%;
 }
+h2{
+    background-color: $highlight-color;
+    width: 100%;
+}
 
 .header{
     border: $brd;
@@ -68,7 +72,6 @@ h1{
             @include flex-col;
             @include center;
             p{
-                background-color: $highlight-color;
                 margin-bottom: 1em;
             }
             .getButtons{

@@ -23,7 +23,7 @@ const elem = {
 	editButton: document.getElementById("editButton")
 };
 
-//Module pattern usinf IIFE with event listeners on the buttons on HTML page. Calling functions when clicked on
+//Module pattern using IIFE with event listeners on the buttons on HTML page. Calling functions when clicked on
 const elemButtons = (function(){
 	elem.showAllMoviesButton.addEventListener("click", function(){
 		let allTheMovies = movieDataBase.showAllMovies();//creating a variable that calls a function. the variable is later returned with a value
