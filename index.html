@@ -43,8 +43,8 @@
 		</ul>
 	</div>
 	<div class="showcase"><!--Div where content is shown, shared css.-->
+	<h2>Add a movie to the database</h2>
 		<div><!--Div containing a form with input fields, both text and numeric, and a button, used to add a movie to the database -->
-			<h2>Add a movie to the database</h2>
 			<form id="newMovieForm">
 				Cover: (url) <br />
 				<input type="text" id="newCover"><br />
@@ -58,11 +58,11 @@
 				<input type="number" id="newRating" min = 1 max = 10><br />
 				Length (in minutes):<br />
 				<input type="number" id="newTime"><br /><br />
-				<input type="submit" value="Add a movie" class="addButton" id="addMovieButton" title="Click here">
+				<input type="submit" value="Add movie" class="addButton" id="addMovieButton" title="Click here">
 			</form>
 		</div>
+		<h2>Edit a movie</h2>
 		<div class="movieEditor"><!--Div contaning select-forms, input fields and a button used to edit a movie in the database  -->
-			<h2>Edit a movie</h2>
 			Which movie?
 			<select id="movieToEdit">
 				<option label="--Select a movie--"></option>
@@ -96,7 +96,7 @@
 				<option value="Horror">Horror</option>
 				<option value="Thriller">Thriller</option>
 				</select><br />
-			<input type="submit" class="addButton" id="editButton" value="Edit">
+			<input type="submit" class="addButton" id="editButton" value="Edit movie">
 		</div>
 	</div>
 	<script type="text/javascript" src="js/main.js"></script><!--Link to the JavaScript file -->
